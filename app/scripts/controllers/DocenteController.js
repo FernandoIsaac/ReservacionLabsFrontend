@@ -1,6 +1,6 @@
 angular.module('AngularScaffold.Controllers')
   .controller('docenteController', ['$scope', 'docenteService', '$sessionStorage', function ($scope, docenteService, $sessionStorage) {
-    	$scope.title = "Docentes."
+    	$scope.title = "Docentes"
       $scope.docentes = [];
       $scope.docente = {};
 
@@ -17,7 +17,7 @@ angular.module('AngularScaffold.Controllers')
           alert(err.data.error + " " + err.data.message)
         });
       }
-      
+
       $scope.GetDocente = function(params){
         docenteService.GetDocente(params).then(function(response){
           $scope.docente = response.data;
@@ -34,8 +34,8 @@ angular.module('AngularScaffold.Controllers')
           alert(err.data.error + " " + err.data.message);
         });
       }
-      
-      
+
+
       $scope.DeleteDocente = function (params) {
         docenteService.DeleteDocente(params).then(function (params) {
           alert("Docente Deleted");
@@ -45,7 +45,7 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
- 
+
 
       $scope.isAdmin = function(){
         return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;
