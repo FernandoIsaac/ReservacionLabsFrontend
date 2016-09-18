@@ -7,7 +7,7 @@ angular.module('AngularScaffold.Controllers')
       $scope.prducts = [];
       $scope.product = {};
 
-      $scope.getIngredients = function(){
+      $scope.GetIngredients = function(){
         HomeService.GetIngredients().then(function(response){
           $scope.ingredients = response.data;
           console.log($scope.ingredients);
@@ -16,7 +16,7 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
-      $scope.postIngredients = function(){
+      $scope.PostIngredients = function(){
         HomeService.PostIngredients($scope.ingredient).then(function(response){
           alert("Posted to ingredients");
           $scope.getIngredients();
@@ -25,7 +25,7 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
-      $scope.getProducts = function(){
+      $scope.GetProducts = function(){
         HomeService.GetProducts().then(function(response){
           $scope.products = response.data;
           console.log($scope.products);
@@ -34,7 +34,7 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
-      $scope.postProducts = function(){
+      $scope.PostProducts = function(){
         HomeService.PostProducts($scope.product).then(function(response){
           alert("Posted to products");
           $scope.getProducts();

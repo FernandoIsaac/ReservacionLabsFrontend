@@ -16,21 +16,18 @@
     <script src="/angular-ui-router/release/angular-ui-router.js"></script>
 
     <script src="/ngstorage/ngStorage.js"></script>
-    
+
     <link rel="stylesheet" href="styles/materialize/css/materialize.css">
-    
+
     <script src="app.js"></script>
-    
+
     <script src="/jquery/dist/jquery.js"></script>
 
     <script src="/angular/angular.js"></script>
 
-    <script src="/angular-ui-router/release/angular-ui-router.js"></script>    
+    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
 
     <script src="/ngstorage/ngStorage.js"></script>
-
-    <script src="scripts/services/authService.js"></script>
-    <script src="scripts/controllers/AdminController.js"></script>
 
 <!--
 
@@ -48,7 +45,7 @@ http://www.tooplate.com/view/2075-digital-team
 	<link rel="stylesheet" href="css/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
 </head>
-<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50" ng-app="AngularScaffold" ng-controller = "AdminController"> 
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50" ng-app="AngularScaffold">
 
 <!-- preloader section -->
 <div class="preloader">
@@ -116,7 +113,7 @@ http://www.tooplate.com/view/2075-digital-team
 				</div>
 			</div>
 			<div class="col-md-6 col-sm-12">
-				
+
 					<div class="col-md-6 col-sm-6">
 						<input type="text" class="form-control" placeholder="Username" name="username" id = "username" ng-model = "user.username" ng-show="!$sessionStorage.currentUser" >
 
@@ -170,6 +167,7 @@ http://www.tooplate.com/view/2075-digital-team
   <script src="scripts/controllers/navbarController.js"></script>
   <script src="scripts/services/HomeService.js"></script>
   <script src="scripts/services/authService.js"></script>
+	<script src="scripts/controllers/AdminController.js"></script>
   <!-- endinject -->
 
 
