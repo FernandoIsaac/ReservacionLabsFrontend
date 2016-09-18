@@ -1,0 +1,203 @@
+USE [master]
+GO
+/****** Object:  Database [Proyecto]    Script Date: 22/08/2016 05:35:11 p.m. ******/
+CREATE DATABASE [Proyecto]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'Proyecto', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\Proyecto.mdf' , SIZE = 7168KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'Proyecto_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\Proyecto_log.ldf' , SIZE = 1024KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [Proyecto] SET COMPATIBILITY_LEVEL = 120
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Proyecto].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Proyecto] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [Proyecto] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [Proyecto] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [Proyecto] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [Proyecto] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [Proyecto] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [Proyecto] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [Proyecto] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [Proyecto] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [Proyecto] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [Proyecto] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [Proyecto] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [Proyecto] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [Proyecto] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [Proyecto] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [Proyecto] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [Proyecto] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [Proyecto] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [Proyecto] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [Proyecto] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [Proyecto] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [Proyecto] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [Proyecto] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [Proyecto] SET  MULTI_USER 
+GO
+ALTER DATABASE [Proyecto] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [Proyecto] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [Proyecto] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [Proyecto] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+ALTER DATABASE [Proyecto] SET DELAYED_DURABILITY = DISABLED 
+GO
+USE [Proyecto]
+GO
+/****** Object:  Table [dbo].[tabla]    Script Date: 22/08/2016 05:35:11 p.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[tabla](
+	[Email] [nvarchar](30) NOT NULL,
+	[Contraseña] [nvarchar](15) NULL,
+	[PrimerNombre] [nvarchar](20) NULL,
+	[Segundo Nombre] [nvarchar](20) NULL,
+	[Primer Apellido] [nvarchar](20) NULL,
+	[Segundo Apellido] [nvarchar](20) NULL,
+	[Campus] [nvarchar](20) NULL,
+	[Departamento] [nvarchar](20) NULL,
+	[Teléfono] [float] NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Tabla_Docente]    Script Date: 22/08/2016 05:35:11 p.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Tabla_Docente](
+	[Email] [varchar](30) NOT NULL,
+	[Contrasena] [varchar](15) NULL,
+	[PrimerNombre] [varchar](15) NULL,
+	[SegundoNombre] [varchar](15) NULL,
+	[PrimerApellido] [varchar](15) NULL,
+	[SegundoApellido] [varchar](15) NULL,
+	[Campus] [varchar](15) NOT NULL,
+	[Departamento] [varchar](30) NULL,
+	[Telefono] [char](8) NULL,
+ CONSTRAINT [PK_Tabla_Docente] PRIMARY KEY CLUSTERED 
+(
+	[Email] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Tabla_Laboratorio]    Script Date: 22/08/2016 05:35:11 p.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Tabla_Laboratorio](
+	[ID_Laboratorio] [char](5) NOT NULL,
+	[Nombre] [varchar](30) NULL,
+	[Descripcion] [varchar](60) NULL,
+	[Ubicacion] [varchar](20) NULL,
+	[Capacidad] [numeric](18, 0) NULL,
+ CONSTRAINT [PK_Tabla_Laboratorio] PRIMARY KEY CLUSTERED 
+(
+	[ID_Laboratorio] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Tabla_Recursos_de_Laboratorio]    Script Date: 22/08/2016 05:35:11 p.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Tabla_Recursos_de_Laboratorio](
+	[ID_Laboratorio] [char](5) NOT NULL,
+	[Recursos] [varchar](100) NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Tabla_Reservacion]    Script Date: 22/08/2016 05:35:11 p.m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Tabla_Reservacion](
+	[ID_Reservacion] [char](5) NOT NULL,
+	[Descripcion] [varchar](50) NULL,
+	[Estado] [varchar](50) NULL,
+	[Fecha_inicial] [date] NULL,
+	[Fecha_final] [date] NULL,
+	[Hora_inicial] [time](7) NULL,
+	[Hora_final] [time](7) NULL,
+	[Email_Docente] [varchar](30) NULL,
+	[ID_Laboratorio] [char](5) NULL,
+ CONSTRAINT [PK_Tabla_Reservacion] PRIMARY KEY CLUSTERED 
+(
+	[ID_Reservacion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+ALTER TABLE [dbo].[Tabla_Recursos_de_Laboratorio]  WITH CHECK ADD  CONSTRAINT [FK_Tabla_Recursos_de_Laboratorio_Tabla_Laboratorio] FOREIGN KEY([ID_Laboratorio])
+REFERENCES [dbo].[Tabla_Laboratorio] ([ID_Laboratorio])
+GO
+ALTER TABLE [dbo].[Tabla_Recursos_de_Laboratorio] CHECK CONSTRAINT [FK_Tabla_Recursos_de_Laboratorio_Tabla_Laboratorio]
+GO
+ALTER TABLE [dbo].[Tabla_Reservacion]  WITH CHECK ADD  CONSTRAINT [FK_Tabla_Reservacion_Tabla_Docente] FOREIGN KEY([Email_Docente])
+REFERENCES [dbo].[Tabla_Docente] ([Email])
+GO
+ALTER TABLE [dbo].[Tabla_Reservacion] CHECK CONSTRAINT [FK_Tabla_Reservacion_Tabla_Docente]
+GO
+ALTER TABLE [dbo].[Tabla_Reservacion]  WITH CHECK ADD  CONSTRAINT [FK_Tabla_Reservacion_Tabla_Laboratorio] FOREIGN KEY([ID_Laboratorio])
+REFERENCES [dbo].[Tabla_Laboratorio] ([ID_Laboratorio])
+GO
+ALTER TABLE [dbo].[Tabla_Reservacion] CHECK CONSTRAINT [FK_Tabla_Reservacion_Tabla_Laboratorio]
+GO
+USE [master]
+GO
+ALTER DATABASE [Proyecto] SET  READ_WRITE 
+GO
