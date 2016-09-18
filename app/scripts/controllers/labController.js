@@ -19,7 +19,7 @@ angular.module('AngularScaffold.Controllers')
           alert(err.data.error + " " + err.data.message)
         });
       }
-      
+
       $scope.GetLab = function(params){
         labService.GetLab(params).then(function(response){
           $scope.lab = response.data;
@@ -30,7 +30,6 @@ angular.module('AngularScaffold.Controllers')
 
       $scope.PostLab = function(){
         labService.PostLab($scope.lab).then(function(response){
-          console.log($scope.gender);
           alert("Posted to labs");
           $scope.GetLabs();
         }).catch(function(err){
@@ -47,7 +46,7 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
- 
+
 
       $scope.isAdmin = function(){
         return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;

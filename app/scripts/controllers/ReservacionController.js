@@ -1,23 +1,23 @@
 angular.module('AngularScaffold.Controllers')
-  .controller('reservacionController', ['$scope', 'docenteService', '$sessionStorage', function ($scope, docenteService, $sessionStorage) {
+  .controller('reservacionController', ['$scope', 'reservacionService', '$sessionStorage', function ($scope, reservacionService, $sessionStorage) {
     	$scope.title = "Reservaciones."
-      $scope.reservacions = [];
+      $scope.reservaciones = [];
       $scope.reservacion = {};
 
       reservacionService.GetReservaciones().then(function(response){
-          $scope.reservacions = response.data;
+          $scope.reservaciones = response.data;
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message)
         });
 
       $scope.GetReservaciones = function(){
         reservacionService.GetReservaciones().then(function(response){
-          $scope.reservacions = response.data;
+          $scope.reservaciones = response.data;
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message)
         });
       }
-      
+
       $scope.GetReservacion = function(params){
         reservacionService.GetReservacion(params).then(function(response){
           $scope.reservacion = response.data;
@@ -27,15 +27,15 @@ angular.module('AngularScaffold.Controllers')
       }
 
       $scope.PostReservacion = function(){
-        reservacionService.PostReservacion($scope.docente).then(function(response){
-          alert("Posted to reservacions");
+        reservacionService.PostReservacion($scope.reservacion).then(function(response){
+          alert("Posted to reservaciones");
           $scope.GetReservaciones();
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });
       }
-      
-      
+
+
       $scope.DeleteReservacion = function (params) {
         reservacionService.DeleteReservacion(params).then(function (params) {
           alert("Reservacion Deleted");
@@ -45,7 +45,7 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
- 
+
 
       $scope.isAdmin = function(){
         return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;

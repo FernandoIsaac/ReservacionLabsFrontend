@@ -30,20 +30,20 @@ http://www.tooplate.com/view/2075-digital-team
     <script src="/angular-ui-router/release/angular-ui-router.js"></script>
 
     <script src="/ngstorage/ngStorage.js"></script>
-    
+
     <link rel="stylesheet" href="styles/materialize/css/materialize.css">
-    
+
     <script src="app.js"></script>
-    
+
     <script src="/jquery/dist/jquery.js"></script>
 
     <script src="/angular/angular.js"></script>
 
-    <script src="/angular-ui-router/release/angular-ui-router.js"></script>    
+    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
 
     <script src="/ngstorage/ngStorage.js"></script>
- 
-    
+
+
     <script src="scripts/services/labService.js"></script>
     <script src="scripts/controllers/labController.js"></script>
     <script src="scripts/services/reservacionService.js"></script>
@@ -134,15 +134,15 @@ http://www.tooplate.com/view/2075-digital-team
 						</div>
 				</div>
 
-					<div id="Reservation" class="tabcontent">
+					<div ng-controller = "reservacionController" id="Reservation" class="tabcontent">
 						<div class = "row">
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="ID" name="idReservation">
+								<input ng-model = "reservacion.id_Reservacion" type ="text" class="form-control" placeholder="ID" name="idReservation">
 							</div>
 							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="ID Laboratorio" name="idLabRes">
+								<input ng-model = "reservacion.id_Laboratorio" type ="text" class="form-control" placeholder="ID Laboratorio" name="idLabRes">
 							</div>
 						</div>
 						<div class="row" style="margin-top:10px;">
@@ -160,16 +160,16 @@ http://www.tooplate.com/view/2075-digital-team
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-2 col-sm-2">
-								<input type ="date" class="form-control" placeholder="Fecha Inicial" name="initialDate">
+								<input ng-model = "reservacion.fecha_inicial" type ="date" class="form-control" placeholder="Fecha Inicial" name="initialDate">
 							</div>
 							<div class="col-md-2 col-sm-2">
-								<input type ="date" class="form-control" placeholder="Fecha Final" name="finalDate">
+								<input ng-model = "reservacion.fecha_final" type ="date" class="form-control" placeholder="Fecha Final" name="finalDate">
 							</div>
 							<div class="col-md-2 col-sm-2">
-								<input type ="time" class="form-control" placeholder="Hora Inicial" name="initialHour">
+								<input ng-model = "reservacion.hora_inicial" type ="time" class="form-control" placeholder="Hora Inicial" name="initialHour">
 							</div>
 							<div class="col-md-2 col-sm-2">
-								<input type ="time" class="form-control" placeholder="Hora Final" name="finalHour">
+								<input ng-model = "reservacion.hora_final" type ="time" class="form-control" placeholder="Hora Final" name="finalHour">
 							</div>
 						</div>
 
@@ -179,11 +179,11 @@ http://www.tooplate.com/view/2075-digital-team
 							</div>
 
 							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="Estado" name="estadoRes">
+								<input ng-model = "reservacion.estado" type ="text" class="form-control" placeholder="Estado" name="estadoRes">
 							</div>
 
 							<div class="col-md-4 col-sm-4">
-								<input type ="email" class="form-control" placeholder="Email Docente" name="emailRes">
+								<input ng-model = "reservacion.emaildocente" type ="email" class="form-control" placeholder="Email Docente" name="emailRes">
 							</div>
 						</div>
 
@@ -191,10 +191,10 @@ http://www.tooplate.com/view/2075-digital-team
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-6 col-sm-6">
-								<input type ="text" class="form-control" placeholder="Descripción" name="labDesc">
+								<input ng-model = "reservacion.descripcion" type ="text" class="form-control" placeholder="Descripción" name="labDesc">
 							</div>
 							<div class = "col-md-2 col-sm-2"  style="padding-left:10px">
-								<button class="btn btn-warning" style="width:152px">Aceptar</button>
+								<button class="btn btn-warning" style="width:152px" ng-click="PostReservacion()">Aceptar</button>
 							</div>
 						</div>
 
