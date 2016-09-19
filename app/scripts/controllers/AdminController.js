@@ -3,7 +3,7 @@ angular.module('AngularScaffold.Controllers')
       $scope.user = {};
       $scope.$sessionStorage = $sessionStorage;
 
-      $scope.Logout = function(){
+      $scope.logout = function(){
         authService.Logout().then(function(response){
           $sessionStorage.$reset();
         }).catch(function(err){
@@ -11,7 +11,7 @@ angular.module('AngularScaffold.Controllers')
         })
       }
 
-      $scope.Login = function(user){
+      $scope.login = function(user){
 
         console.log("AQUI TA");
         authService.Login(user).then(function(response){
