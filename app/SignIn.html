@@ -118,7 +118,7 @@ http://www.tooplate.com/view/2075-digital-team
 					<div class="col-md-6 col-sm-6">
 						<input type="password" class="form-control" placeholder="Password" name="pass" id="password" ng-model="user.password" ng-show="!$sessionStorage.currentUser">
 					</div>
-					<div class="col-md-offset-4 col-md-8 col-sm-offset-4 col-sm-8" style="margin-left:100px">
+					<div ng-controller="AdminController" class="col-md-offset-4 col-md-8 col-sm-offset-4 col-sm-8" style="margin-left:100px">
 						<input type="submit" class="form-control" value="Log in" ng-show="!$sessionStorage.currentUser" ng-click="login(user)">
 					</div>
 					<div class="col-md-offset-4 col-md-8 col-sm-offset-4 col-sm-8" style="margin-left:100px">
