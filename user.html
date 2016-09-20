@@ -49,29 +49,31 @@ http://www.tooplate.com/view/2075-digital-team
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
 				<div class="section-title" style="padding-bottom:0px">
-					<strong>LABORATORIOS</strong>
+					<strong>USUARIOS</strong>
 					<h1 class="heading bold">ADMINISTRACIÓN GENERAL</h1>
 					<hr>
 				</div>
 				<div class="iso-section">
 					<ul class="filter-wrapper clearfix">
-
-											 <li><a href="#" class="tablinks" onclick="openCity(event, 'NewLab')">Nuevo Laboratorio</a></li>
-											 <li><a href="#" class="tablinks" onclick="openCity(event, 'ModLabs')">Modifición de Laboratorios</a></li>
-											 <li><a href="#" class="tablinks" onclick="openCity(event, 'Calendar')">Calendario</a></li>
-
-
+						 <li><a href="#" class="tablinks" onclick="openCity(event, 'NewDocente')">Nuevo Docente</a></li>
+						 <li><a href="#" class="tablinks" onclick="openCity(event, 'Reservation')">Modificación de Docentes</a></li>
           </ul>
 
-					<div id="NewLab" class="tabcontent" style="margin-top:20px">
+					<div id="NewDocente" class="tabcontent" style="margin-top:20px">
 						<div class = "row">
 							<div class = "col-md-2 col-sm-2">
 							</div>
-							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="ID" name="idLab">
+							<div class="col-md-2 col-sm-2">
+								<input type ="text" class="form-control" placeholder="Primer Nombre" name="firstName">
 							</div>
-							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="Nombre de laboratorio" name="labName">
+							<div class="col-md-2 col-sm-2">
+								<input type ="text" class="form-control" placeholder="Segundo Nombre" name="secondName">
+							</div>
+							<div class="col-md-2 col-sm-2">
+								<input type ="text" class="form-control" placeholder="Primer Apellido" name="lastName1">
+							</div>
+							<div class="col-md-2 col-sm-2">
+								<input type ="text" class="form-control" placeholder="Segundo Apellido" name="lastName2">
 							</div>
 						</div>
 						<div class = "row" style="margin-top:10px">
@@ -79,11 +81,24 @@ http://www.tooplate.com/view/2075-digital-team
 							</div>
 
 							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="Ubicación" name="ubLab">
+								<input type ="text" class="form-control" placeholder="Email" name="newUemail">
 							</div>
 
 							<div class="col-md-4 col-sm-4">
-								<input type ="number" class="form-control" placeholder="Capacidad" name="capacityLab" min="10" max="35">
+								<input type ="text" class="form-control" placeholder="Contraseña" name="newUpass">
+							</div>
+						</div>
+
+						<div class = "row" style="margin-top:10px">
+							<div class = "col-md-2 col-sm-2">
+							</div>
+
+							<div class="col-md-4 col-sm-4">
+								<input type ="text" class="form-control" placeholder="Campus" name="newUcampus">
+							</div>
+
+							<div class="col-md-4 col-sm-4">
+								<input type ="text" class="form-control" placeholder="Teléfono" name="newUtel">
 							</div>
 						</div>
 
@@ -91,14 +106,13 @@ http://www.tooplate.com/view/2075-digital-team
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-6 col-sm-6">
-								<input type ="text" class="form-control" placeholder="Descripción" name="labDesc">
+								<input type ="text" class="form-control" placeholder="Departamento" name="newUdep">
 							</div>
 							<div class = "col-md-2 col-sm-2"  style="padding-left:10px">
 								<button class="btn btn-warning" style="width:152px">Aceptar</button>
 							</div>
 						</div>
 				</div>
-
 					<div id="Cancel" class="tabcontent">
 					  <h3>Tokyo</h3>
 					  <p>Tokyo is the capital of Japan.</p>
@@ -119,9 +133,6 @@ http://www.tooplate.com/view/2075-digital-team
 		</div>
 	</div>
 </div>
-
-
-	</div>
 
 <script>
 function openCity(evt, cityName) {
@@ -146,8 +157,6 @@ function openCity(evt, cityName) {
 }
 </script>
 
-</div>
-
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/smoothscroll.js"></script>
@@ -157,7 +166,3 @@ function openCity(evt, cityName) {
 <script src="js/jquery.backstretch.min.js"></script>
 <script src="js/wow.min.js"></script>
 <script src="js/custom.js"></script>
-
-
-</body>
-</html>
