@@ -22,6 +22,14 @@ http://www.tooplate.com/view/2075-digital-team
 	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+
+	<script src="scripts/services/labService.js"></script>
+    <script src="scripts/controllers/labController.js"></script>
+    <script src="scripts/services/docenteService.js"></script>
+    <script src="scripts/controllers/DocenteController.js"></script>
+    <script src="scripts/services/recursoService.js"></script>
+    <script src="scripts/controllers/RecursoController.js"></script>
+
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50"  ng-app="AngularScaffold">
 
@@ -63,7 +71,7 @@ http://www.tooplate.com/view/2075-digital-team
 
           </ul>
 
-					<div id="NewLab" class="tabcontent" style="margin-top:20px">
+					<div id="NewLab" class="tabcontent" style="margin-top:20px" ng-controller = "labController">
 						<div class = "row">
 							<div class = "col-md-2 col-sm-2">
 							</div>
@@ -71,7 +79,7 @@ http://www.tooplate.com/view/2075-digital-team
 								<input type ="text" class="form-control" placeholder="ID" name="idLab">
 							</div>
 							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="Nombre de laboratorio" name="labName">
+								<input type ="text" class="form-control" placeholder="Nombre de laboratorio" name="labName" ng-model = "lab.name" >
 							</div>
 						</div>
 						<div class = "row" style="margin-top:10px">
@@ -79,11 +87,11 @@ http://www.tooplate.com/view/2075-digital-team
 							</div>
 
 							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="Ubicación" name="ubLab">
+								<input ng-model = "lab.ubicacion" type ="text" class="form-control" placeholder="Ubicación" name="ubLab">
 							</div>
 
 							<div class="col-md-4 col-sm-4">
-								<input type ="number" class="form-control" placeholder="Capacidad" name="capacityLab" min="10" max="35">
+								<input ng-model = "lab.capacidad" type ="number" class="form-control" placeholder="Capacidad" name="capacityLab" min="10" max="35">
 							</div>
 						</div>
 
@@ -91,10 +99,10 @@ http://www.tooplate.com/view/2075-digital-team
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-6 col-sm-6">
-								<input type ="text" class="form-control" placeholder="Descripción" name="labDesc">
+								<input ng-model = "lab.descripcion" type ="text" class="form-control" placeholder="Descripción" name="labDesc">
 							</div>
 							<div class = "col-md-2 col-sm-2"  style="padding-left:10px">
-								<button class="btn btn-warning" style="width:152px">Aceptar</button>
+								<button class="btn btn-warning" style="width:152px" ng-click = "PostLab()" >Aceptar</button>
 							</div>
 						</div>
 				</div>
