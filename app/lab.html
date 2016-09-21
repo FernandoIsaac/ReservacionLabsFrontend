@@ -22,41 +22,8 @@ http://www.tooplate.com/view/2075-digital-team
 	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
-
-		<script src="/jquery/dist/jquery.js"></script>
-
-    <script src="/angular/angular.js"></script>
-
-    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
-
-    <script src="/ngstorage/ngStorage.js"></script>
-
-    <link rel="stylesheet" href="styles/materialize/css/materialize.css">
-
-    <script src="app.js"></script>
-
-    <script src="/jquery/dist/jquery.js"></script>
-
-    <script src="/angular/angular.js"></script>
-
-    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
-
-    <script src="/ngstorage/ngStorage.js"></script>
-
-
-    <script src="scripts/services/labService.js"></script>
-    <script src="scripts/controllers/labController.js"></script>
-    <script src="scripts/services/reservacionService.js"></script>
-    <script src="scripts/controllers/reservacionController.js"></script>
-        <script src="scripts/services/recursoService.js"></script>
-    <script src="scripts/controllers/recursoController.js"></script>
-    <script src="scripts/services/docenteService.js"></script>
-    <script src="scripts/controllers/docenteController.js"></script>
-    <script src="scripts/services/userService.js"></script>
-    <script src="scripts/services/userService.js"></script>
-    <script src="scripts/controllers/userController.js"></script>
 </head>
-<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50" ng-app="AngularScaffold">
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
 <!-- preloader section -->
 <div class="preloader">
@@ -90,23 +57,21 @@ http://www.tooplate.com/view/2075-digital-team
 					<ul class="filter-wrapper clearfix">
 
 											 <li><a href="#" class="tablinks" onclick="openCity(event, 'NewLab')">Nuevo Laboratorio</a></li>
-											 <li><a href="#" class="tablinks" onclick="openCity(event, 'Reservation')">Reservación</a></li>
-									  	 <li><a href="#" class="tablinks" onclick="openCity(event, 'Cancel')">Cancelación</a></li>
 											 <li><a href="#" class="tablinks" onclick="openCity(event, 'ModLabs')">Modifición de Laboratorios</a></li>
 											 <li><a href="#" class="tablinks" onclick="openCity(event, 'Calendar')">Calendario</a></li>
 
 
           </ul>
 
-					<div ng-controller = "labController" id="NewLab" class="tabcontent" style="margin-top:20px">
+					<div id="NewLab" class="tabcontent" style="margin-top:20px">
 						<div class = "row">
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-4 col-sm-4">
-								<input ng-model = "lab.id_Laboratorio" type ="text" class="form-control" placeholder="ID" name="idLab">
+								<input type ="text" class="form-control" placeholder="ID" name="idLab">
 							</div>
 							<div class="col-md-4 col-sm-4">
-								<input ng-model = "lab.nombre" type ="text" class="form-control" placeholder="Nombre de laboratorio" name="labName">
+								<input type ="text" class="form-control" placeholder="Nombre de laboratorio" name="labName">
 							</div>
 						</div>
 						<div class = "row" style="margin-top:10px">
@@ -118,7 +83,7 @@ http://www.tooplate.com/view/2075-digital-team
 							</div>
 
 							<div class="col-md-4 col-sm-4">
-								<input ng-model = "lab.capacidad" type ="number" class="form-control" placeholder="Capacidad" name="capacityLab" min="10" max="35">
+								<input type ="number" class="form-control" placeholder="Capacidad" name="capacityLab" min="10" max="35">
 							</div>
 						</div>
 
@@ -126,79 +91,13 @@ http://www.tooplate.com/view/2075-digital-team
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-6 col-sm-6">
-								<input ng-model = "lab.descripcion" type ="text" class="form-control" placeholder="Descripción" name="labDesc">
+								<input type ="text" class="form-control" placeholder="Descripción" name="labDesc">
 							</div>
 							<div class = "col-md-2 col-sm-2"  style="padding-left:10px">
-								<button class="btn btn-warning" style="width:152px" ng-click="PostLab()" >Aceptar</button>
+								<button class="btn btn-warning" style="width:152px">Aceptar</button>
 							</div>
 						</div>
 				</div>
-
-					<div ng-controller = "reservacionController" id="Reservation" class="tabcontent">
-						<div class = "row">
-							<div class = "col-md-2 col-sm-2">
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<input ng-model = "reservacion.id_Reservacion" type ="text" class="form-control" placeholder="ID" name="idReservation">
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<input ng-model = "reservacion.id_Laboratorio" type ="text" class="form-control" placeholder="ID Laboratorio" name="idLabRes">
-							</div>
-						</div>
-						<div class="row" style="margin-top:10px;">
-							<div class = "col-md-2 col-sm-2">
-							</div>
-							<div class = "col-md-4 col-sm-4">
-								<p>Rango de Fechas</p>
-							</div>
-							<div class = "col-md-4 col-sm-4">
-								<p>Horas de uso diarias</p>
-							</div>
-						</div>
-
-						<div class = "row">
-							<div class = "col-md-2 col-sm-2">
-							</div>
-							<div class="col-md-2 col-sm-2">
-								<input ng-model = "reservacion.fecha_inicial" type ="date" class="form-control" placeholder="Fecha Inicial" name="initialDate">
-							</div>
-							<div class="col-md-2 col-sm-2">
-								<input ng-model = "reservacion.fecha_final" type ="date" class="form-control" placeholder="Fecha Final" name="finalDate">
-							</div>
-							<div class="col-md-2 col-sm-2">
-								<input ng-model = "reservacion.hora_inicial" type ="time" class="form-control" placeholder="Hora Inicial" name="initialHour">
-							</div>
-							<div class="col-md-2 col-sm-2">
-								<input ng-model = "reservacion.hora_final" type ="time" class="form-control" placeholder="Hora Final" name="finalHour">
-							</div>
-						</div>
-
-
-						<div class = "row" style="margin-top:10px">
-							<div class = "col-md-2 col-sm-2">
-							</div>
-
-							<div class="col-md-4 col-sm-4">
-								<input ng-model = "reservacion.estado" type ="text" class="form-control" placeholder="Estado" name="estadoRes">
-							</div>
-
-							<div class="col-md-4 col-sm-4">
-								<input ng-model = "reservacion.emaildocente" type ="email" class="form-control" placeholder="Email Docente" name="emailRes">
-							</div>
-						</div>
-
-						<div class = "row" style="margin-top:10px">
-							<div class = "col-md-2 col-sm-2">
-							</div>
-							<div class="col-md-6 col-sm-6">
-								<input ng-model = "reservacion.descripcion" type ="text" class="form-control" placeholder="Descripción" name="labDesc">
-							</div>
-							<div class = "col-md-2 col-sm-2"  style="padding-left:10px">
-								<button class="btn btn-warning" style="width:152px" ng-click="PostReservacion()">Aceptar</button>
-							</div>
-						</div>
-
-					</div>
 
 					<div id="Cancel" class="tabcontent">
 					  <h3>Tokyo</h3>
