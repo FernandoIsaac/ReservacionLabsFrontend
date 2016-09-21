@@ -1,5 +1,5 @@
 angular.module('AngularScaffold.Controllers')
-  .controller('reservacionController', ['$scope', 'reservacionService', '$sessionStorage', function ($scope, reservacionService, $sessionStorage) {
+  .controller('ReservacionController', ['$scope', 'reservacionService', '$sessionStorage', function ($scope, reservacionService, $sessionStorage) {
     	$scope.title = "Reservaciones."
       $scope.reservaciones = [];
       $scope.reservacion = {};

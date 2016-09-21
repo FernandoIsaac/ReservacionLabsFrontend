@@ -7,6 +7,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
+
+		<script src="/jquery/dist/jquery.js"></script>
+
+		<script src="/angular/angular.js"></script>
+
+		<script src="/angular-ui-router/release/angular-ui-router.js"></script>
+
+		<script src="/ngstorage/ngStorage.js"></script>
+
+		<script src="app.js"></script>
+
+		<script src="/jquery/dist/jquery.js"></script>
+
+		<script src="/angular/angular.js"></script>
+
+		<script src="/angular-ui-router/release/angular-ui-router.js"></script>
+
+		<script src="/ngstorage/ngStorage.js"></script>
+	<!--
 <!--
 
 Template 2075 Digital Team
@@ -43,6 +62,30 @@ http://www.tooplate.com/view/2075-digital-team
     </div>
 </div>
 
+<section class="navbar navbar-fixed-top custom-navbar" role="navigation">
+	<div  class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="categories.html" class="navbar-brand">Categories</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<!--<li><a href="#home" class="smoothScroll">HOME</a></li>
+				<li><a href="#work" class="smoothScroll">WORK</a></li>
+				<li><a href="#about" class="smoothScroll">ABOUT</a></li>
+				<li><a href="#team" class="smoothScroll">TEAM</a></li>
+				<li><a href="#portfolio" class="smoothScroll">PORTFOLIO</a></li>
+				<li><a href="#pricing" class="smoothScroll">PRICING</a></li>
+				<li><a href="#contact" class="smoothScroll">CONTACT</a></li>-->
+			</ul>
+		</div>
+	</div>
+</section>
+
 <!-- portfolio section -->
 <div id="portfolio" style="padding-top:50px; padding-bottom:0px">
 	<div class="container">
@@ -56,21 +99,24 @@ http://www.tooplate.com/view/2075-digital-team
 				<div class="iso-section">
 					<ul class="filter-wrapper clearfix">
 						 <li><a href="#" class="tablinks" onclick="openCity(event, 'NewResource')">Agregar Rescurso</a></li>
-						 <li><a href="#" class="tablinks" onclick="openCity(event, 'Reservation')">Modificación de Recursos</a></li>
+						 <li><a href="#" class="tablinks" onclick="openCity(event, 'ModResource')">Modificación de Recursos</a></li>
           </ul>
 
-					<div id="NewResource" class="tabcontent" style="margin-top:20px">
+					<div id="NewResource" class="tabcontent" style="margin-top:20px" ng-controller = "RecursoController" >
 						<div class = "row">
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-3 col-sm-3">
-								<input type ="text" class="form-control" placeholder="Nombre" name="resName">
+								<input type ="text" class="form-control" placeholder="id_Recurso" name="id_Recurso" ng-model = "recurso.id_Recurso">
 							</div>
 							<div class="col-md-3 col-sm-3">
-								<input type ="text" class="form-control" placeholder="Descripción" name="resDesc">
+								<input type ="text" class="form-control" placeholder="Nombre" name="nombre" ng-model = "recurso.nombre">
 							</div>
 							<div class="col-md-3 col-sm-3">
-								<button class="btn btn-warning" style="width:152px">Aceptar</button>
+								<input type ="text" class="form-control" placeholder="Descripción" name="descripcion" ng-model = "recurso.descripcion">
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<button class="btn btn-warning" style="width:152px" ng-click = "postRecurso()">Aceptar</button>
 							</div>
 						</div>
 				</div>
@@ -79,18 +125,21 @@ http://www.tooplate.com/view/2075-digital-team
 					  <p>Tokyo is the capital of Japan.</p>
 					</div>
 
-					<div id="ModResource" class="tabcontent">
+					<div id="ModResource" class="tabcontent" ng-controller = "RecursoController">
 						<div class = "row">
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-3 col-sm-3">
-								<input type ="text" class="form-control" placeholder="Nombre" name="resName">
+								<input type ="text" class="form-control" placeholder="id_Recurso" name="id_Recurso" ng-model = "recurso.id_Recurso">
 							</div>
 							<div class="col-md-3 col-sm-3">
-								<input type ="text" class="form-control" placeholder="Descripción" name="resDesc">
+								<input type ="text" class="form-control" placeholder="Nombre" name="nombre" ng-model = "recurso.nombre">
 							</div>
 							<div class="col-md-3 col-sm-3">
-								<button class="btn btn-warning" style="width:152px">Modificar</button>
+								<input type ="text" class="form-control" placeholder="Descripción" name="descripcion" ng-model = "recurso.descripcion">
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<button class="btn btn-warning" style="width:152px" ng-click = "editRecurso()">Modificar</button>
 							</div>
 						</div>
 					</div>
@@ -138,3 +187,33 @@ function openCity(evt, cityName) {
 <script src="js/jquery.backstretch.min.js"></script>
 <script src="js/wow.min.js"></script>
 <script src="js/custom.js"></script>
+
+</body>
+
+<script src="/jquery/dist/jquery.js"></script>
+
+<script src="/angular/angular.js"></script>
+
+<script src="/angular-ui-router/release/angular-ui-router.js"></script>
+
+<script src="/bootstrap-css/js/bootstrap.min.js"></script>
+
+<script src="/ngstorage/ngStorage.js"></script>
+
+<script src="/bootstrap/dist/js/bootstrap.js"></script>
+
+<!-- endinject -->
+
+<script src="app.js"></script>
+
+<!-- inject:js -->
+<script src="scripts/services/labService.js"></script>
+	<script src="scripts/controllers/labController.js"></script>
+	<script src="scripts/services/docenteService.js"></script>
+	<script src="scripts/controllers/DocenteController.js"></script>
+	<script src="scripts/services/recursoService.js"></script>
+	<script src="scripts/controllers/RecursoController.js"></script>
+<script src="scripts/services/authService.js"></script>
+<script src="scripts/controllers/AdminController.js"></script>
+<!-- endinject -->
+</html>

@@ -1,5 +1,5 @@
 angular.module('AngularScaffold.Controllers')
-  .controller('docenteController', ['$scope', 'docenteService', '$sessionStorage', function ($scope, docenteService, $sessionStorage) {
+  .controller('DocenteController', ['$scope', 'docenteService', '$sessionStorage', function ($scope, docenteService, $sessionStorage) {
     	$scope.title = "Docentes"
       $scope.docentes = [];
       $scope.docente = {};

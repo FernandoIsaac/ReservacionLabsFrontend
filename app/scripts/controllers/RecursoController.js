@@ -1,5 +1,5 @@
 angular.module('AngularScaffold.Controllers')
-  .controller('recursoController', ['$scope', 'recursoService', '$sessionStorage', function ($scope, recursoService, $sessionStorage) {
+  .controller('RecursoController', ['$scope', 'recursoService', '$sessionStorage', function ($scope, recursoService, $sessionStorage) {
     	$scope.title = "Recursos."
       $scope.recursos = [];
       $scope.recurso = {};
@@ -21,6 +21,7 @@ angular.module('AngularScaffold.Controllers')
       }
 
       $scope.postRecurso = function(){
+        console.log($scope.recurso);
         recursoService.PostRecurso($scope.recurso).then(function(response){
           alert("Posted to recursos");
           $scope.listRecursos();
@@ -40,6 +41,7 @@ angular.module('AngularScaffold.Controllers')
       }
 
       $scope.editRecurso = function(){
+        console.log($scope.recurso);
         recursoService.EditRecurso($scope.recurso).then(function(response){
           alert("Edited to recursos");
           $scope.listRecursos();

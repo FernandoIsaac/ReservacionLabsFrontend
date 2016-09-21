@@ -1,4 +1,4 @@
-angular.module('AngularScaffold.Services').factory('petService', ['$http',
+angular.module('AngularScaffold.Services').factory('recursoService', ['$http',
 	function($http){
 		$http.defaults.withCredentials = true;
 		var baseUrl = 'http://localhost:8000';
@@ -18,7 +18,8 @@ angular.module('AngularScaffold.Services').factory('petService', ['$http',
 					return $http.get(baseUrl + "/v1/getRecurso/{recursoId}"+payload);
 				},
 				EditRecurso: function(payload){
-					return $http.get(baseUrl + "/v1/editRecurso/{recursoId}"+payload);
+					console.log(payload.id_Recurso +" "+payload);
+					return $http.get(baseUrl + "/v1/editRecurso/{recursoId}"+payload.id_Recurso,payload);
 				}
 
 	    };

@@ -70,6 +70,30 @@ http://www.tooplate.com/view/2075-digital-team
     </div>
 </div>
 
+<section class="navbar navbar-fixed-top custom-navbar" role="navigation">
+	<div  class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="categories.html" class="navbar-brand">Categories</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<!--<li><a href="#home" class="smoothScroll">HOME</a></li>
+				<li><a href="#work" class="smoothScroll">WORK</a></li>
+				<li><a href="#about" class="smoothScroll">ABOUT</a></li>
+				<li><a href="#team" class="smoothScroll">TEAM</a></li>
+				<li><a href="#portfolio" class="smoothScroll">PORTFOLIO</a></li>
+				<li><a href="#pricing" class="smoothScroll">PRICING</a></li>
+				<li><a href="#contact" class="smoothScroll">CONTACT</a></li>-->
+			</ul>
+		</div>
+	</div>
+</section>
+
 <!-- portfolio section -->
 <div id="portfolio" style="padding-top:50px; padding-bottom:0px">
 	<div class="container">
@@ -131,15 +155,15 @@ http://www.tooplate.com/view/2075-digital-team
 					  <p>Tokyo is the capital of Japan.</p>
 					</div>
 
-					<div id="ModLabs" class="tabcontent">
+					<div id="ModLabs" class="tabcontent" ng-controller = "labController">
 						<div class = "row">
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="ID" name="idLab">
+								<input type ="text" class="form-control" placeholder="ID" name="id_Laboratorio" ng-model = "lab.id_Laboratorio">
 							</div>
 							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="Nombre de laboratorio" name="labName">
+								<input type ="text" class="form-control" placeholder="Nombre de laboratorio" name="nombre" ng-model = "lab.nombre" >
 							</div>
 						</div>
 						<div class = "row" style="margin-top:10px">
@@ -147,11 +171,11 @@ http://www.tooplate.com/view/2075-digital-team
 							</div>
 
 							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="Ubicación" name="ubLab">
+								<input ng-model = "lab.ubicacion" type ="text" class="form-control" placeholder="Ubicación" name="ubicacion">
 							</div>
 
 							<div class="col-md-4 col-sm-4">
-								<input type ="number" class="form-control" placeholder="Capacidad" name="capacityLab" min="10" max="35">
+								<input ng-model = "lab.capacidad" type ="number" class="form-control" placeholder="Capacidad" name="capacityLab" min="10" max="35">
 							</div>
 						</div>
 
@@ -159,10 +183,10 @@ http://www.tooplate.com/view/2075-digital-team
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-6 col-sm-6">
-								<input type ="text" class="form-control" placeholder="Descripción" name="labDesc">
+								<input ng-model = "lab.descripcion" type ="text" class="form-control" placeholder="Descripción" name="descripcion">
 							</div>
 							<div class = "col-md-2 col-sm-2"  style="padding-left:10px">
-								<button class="btn btn-warning" style="width:152px">Modificar</button>
+								<button class="btn btn-warning" style="width:152px" ng-click = "editLab()" >Modificar</button>
 							</div>
 						</div>
 					</div>

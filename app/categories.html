@@ -52,8 +52,7 @@ http://www.tooplate.com/view/2075-digital-team
 				<span class="icon icon-bar"></span>
 				<span class="icon icon-bar"></span>
 			</button>
-			<button ng-controller="AdminController" value="Log Out" ng-show="$sessionStorage.currentUser" ng-click="logout()">Log Out </button>
-			<a href="SignIn.html" class="navbar-brand">Log Out</a>
+			<a ng-controller="AdminController" href="SignIn.html" class="navbar-brand" ng-click="logout()">Log Out</a>
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">

@@ -21,6 +21,7 @@ angular.module('AngularScaffold.Controllers')
       }
 
       $scope.postLab = function(){
+        console.log($scope.lab);
         labService.PostLab($scope.lab).then(function(response){
           alert("Posted to labs");
           $scope.listLabs();
