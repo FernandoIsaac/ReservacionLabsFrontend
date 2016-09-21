@@ -16,7 +16,7 @@ angular.module('AngularScaffold.Services').factory('labService', ['$http',
         },
         GetLab: function(payload){
 					return $http.get(baseUrl + "/v1/getLab/{labId}"+payload);
-				}
+				},
 				EditLab: function(payload){
 					return $http.get(baseUrl + "/v1/editLab/{labId}"+payload);
 				}

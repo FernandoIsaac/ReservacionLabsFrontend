@@ -16,7 +16,7 @@ angular.module('AngularScaffold.Services').factory('reservacionService', ['$http
         },
         GetReservacion: function(payload){
 					return $http.get(baseUrl + "/v1/getReservacion/{reservacionId}"+payload);
-				}
+				},
 				EditReservacion: function(payload){
 					return $http.get(baseUrl + "/v1/editReservacion/{reservacionId}"+payload);
 				}

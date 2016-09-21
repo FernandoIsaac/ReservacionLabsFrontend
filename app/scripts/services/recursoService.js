@@ -16,7 +16,7 @@ angular.module('AngularScaffold.Services').factory('petService', ['$http',
         },
         GetRecurso: function(payload){
 					return $http.get(baseUrl + "/v1/getRecurso/{recursoId}"+payload);
-				}
+				},
 				EditRecurso: function(payload){
 					return $http.get(baseUrl + "/v1/editRecurso/{recursoId}"+payload);
 				}

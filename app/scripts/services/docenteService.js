@@ -16,7 +16,7 @@ angular.module('AngularScaffold.Services').factory('docenteService', ['$http',
 				},
 				ListDocentes: function(){
 					return $http.get(baseUrl + "/v1/listDocentes/"+payload);
-				}
+				},
 				EditDocente: function(){
 					return $http.get(baseUrl + "/v1/editDocente/{docenteId}"+payload);
 				}
