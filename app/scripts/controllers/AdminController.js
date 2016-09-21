@@ -4,6 +4,7 @@ angular.module('AngularScaffold.Controllers')
       $scope.$sessionStorage = $sessionStorage;
 
       $scope.logout = function(){
+        console.log("HMMM")
         authService.Logout().then(function(response){
           $sessionStorage.$reset();
         }).catch(function(err){
@@ -18,7 +19,7 @@ angular.module('AngularScaffold.Controllers')
           if($scope.isAdmin()){
             window.location = "/lab.html";
           }else{
-            window.location = "/categories.html";
+            window.location = "/docente.html";
           }
 
 

@@ -112,14 +112,14 @@ http://www.tooplate.com/view/2075-digital-team
 			<div ng-controller="AdminController"  class="col-md-6 col-sm-12">
 
 					<div class="col-md-6 col-sm-6">
-						<input type="text" class="form-control" placeholder="Username" name="username" id = "username" ng-model = "user.username" ng-show="!$sessionStorage.currentUser" >
+						<input type="text" class="form-control" placeholder="Email" name="email" id = "email" ng-model = "docente.email" ng-show="!$sessionStorage.currentUser" >
 
 					</div>
 					<div class="col-md-6 col-sm-6">
-						<input type="password" class="form-control" placeholder="Password" name="pass" id="password" ng-model="user.password" ng-show="!$sessionStorage.currentUser">
+						<input type="password" class="form-control" placeholder="Password" name="pass" id="password" ng-model="docente.password" ng-show="!$sessionStorage.currentUser">
 					</div>
 					<div class="col-md-offset-4 col-md-8 col-sm-offset-4 col-sm-8" style="margin-left:100px">
-						<input type="submit" class="form-control" value="Log in" ng-show="!$sessionStorage.currentUser" ng-click="login(user)">
+						<input type="submit" class="form-control" value="Log in" ng-show="!$sessionStorage.currentUser" ng-click="login(docente)">
 					</div>
 					<div class="col-md-offset-4 col-md-8 col-sm-offset-4 col-sm-8" style="margin-left:100px">
                </div>
@@ -160,9 +160,6 @@ http://www.tooplate.com/view/2075-digital-team
   <script src="app.js"></script>
 
   <!-- inject:js -->
-  <script src="scripts/controllers/HomeController.js"></script>
-  <script src="scripts/controllers/navbarController.js"></script>
-  <script src="scripts/services/HomeService.js"></script>
   <script src="scripts/services/authService.js"></script>
 	<script src="scripts/controllers/AdminController.js"></script>
   <!-- endinject -->
