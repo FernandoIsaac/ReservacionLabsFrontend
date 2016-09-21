@@ -7,6 +7,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
+
+	<script src="/jquery/dist/jquery.js"></script>
+
+	<script src="/angular/angular.js"></script>
+
+	<script src="/angular-ui-router/release/angular-ui-router.js"></script>
+
+	<script src="/ngstorage/ngStorage.js"></script>
+
+	<script src="app.js"></script>
+
+	<script src="/jquery/dist/jquery.js"></script>
+
+	<script src="/angular/angular.js"></script>
+
+	<script src="/angular-ui-router/release/angular-ui-router.js"></script>
+
+	<script src="/ngstorage/ngStorage.js"></script>
 <!--
 
 Template 2075 Digital Team
@@ -30,23 +48,6 @@ http://www.tooplate.com/view/2075-digital-team
     <script src="scripts/services/recursoService.js"></script>
     <script src="scripts/controllers/RecursoController.js"></script>
 
-    <script src="/jquery/dist/jquery.js"></script>
-
-    <script src="/angular/angular.js"></script>
-
-    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
-
-    <script src="/ngstorage/ngStorage.js"></script>
-
-    <script src="app.js"></script>
-
-    <script src="/jquery/dist/jquery.js"></script>
-
-    <script src="/angular/angular.js"></script>
-
-    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
-
-    <script src="/ngstorage/ngStorage.js"></script>
 
 </head>
 <body data-spy="scroll" data-target=".navbar-collapse" data-offset="50"  ng-app="AngularScaffold">
@@ -94,10 +95,10 @@ http://www.tooplate.com/view/2075-digital-team
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="ID" name="idLab">
+								<input type ="text" class="form-control" placeholder="ID" name="id_Laboratorio" ng-model = "lab.id_Laboratorio">
 							</div>
 							<div class="col-md-4 col-sm-4">
-								<input type ="text" class="form-control" placeholder="Nombre de laboratorio" name="labName" ng-model = "lab.name" >
+								<input type ="text" class="form-control" placeholder="Nombre de laboratorio" name="nombre" ng-model = "lab.nombre" >
 							</div>
 						</div>
 						<div class = "row" style="margin-top:10px">
@@ -105,7 +106,7 @@ http://www.tooplate.com/view/2075-digital-team
 							</div>
 
 							<div class="col-md-4 col-sm-4">
-								<input ng-model = "lab.ubicacion" type ="text" class="form-control" placeholder="Ubicación" name="ubLab">
+								<input ng-model = "lab.ubicacion" type ="text" class="form-control" placeholder="Ubicación" name="ubicacion">
 							</div>
 
 							<div class="col-md-4 col-sm-4">
@@ -117,10 +118,10 @@ http://www.tooplate.com/view/2075-digital-team
 							<div class = "col-md-2 col-sm-2">
 							</div>
 							<div class="col-md-6 col-sm-6">
-								<input ng-model = "lab.descripcion" type ="text" class="form-control" placeholder="Descripción" name="labDesc">
+								<input ng-model = "lab.descripcion" type ="text" class="form-control" placeholder="Descripción" name="descripcion">
 							</div>
 							<div class = "col-md-2 col-sm-2"  style="padding-left:10px">
-								<button class="btn btn-warning" style="width:152px" ng-click = "PostLab()" >Aceptar</button>
+								<button class="btn btn-warning" style="width:152px" ng-click = "postLab()" >Aceptar</button>
 							</div>
 						</div>
 				</div>
