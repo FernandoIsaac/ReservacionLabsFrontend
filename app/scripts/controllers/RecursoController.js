@@ -4,21 +4,15 @@ angular.module('AngularScaffold.Controllers')
       $scope.recursos = [];
       $scope.recurso = {};
 
-      recursoService.GetRecursos().then(function(response){
-          $scope.recursos = response.data;
-        }).catch(function(err){
-          alert(err.data.error + " " + err.data.message)
-        });
-
-      $scope.GetRecursos = function(){
-        recursoService.GetRecursos().then(function(response){
+      $scope.listRecursos = function(){
+        recursoService.ListRecursos().then(function(response){
           $scope.recursos = response.data;
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message)
         });
       }
-      
-      $scope.GetRecurso = function(params){
+
+      $scope.getRecurso = function(params){
         recursoService.GetRecurso(params).then(function(response){
           $scope.recurso = response.data;
         }).catch(function(err){
@@ -26,33 +20,33 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
-      $scope.PostRecurso = function(){
+      $scope.postRecurso = function(){
         recursoService.PostRecurso($scope.recurso).then(function(response){
           alert("Posted to recursos");
-          $scope.GetRecursos();
+          $scope.listRecursos();
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });
       }
-      
-      
-      $scope.DeleteRecurso = function (params) {
+
+
+      $scope.deleteRecurso = function (params) {
         recursoService.DeleteRecurso(params).then(function (params) {
           alert("Recurso Deleted");
-          $scope.GetRecursos();
+          $scope.listRecursos();
         }).catch(function (err) {
           alert(err.data.error + " " + err.data.message);
         });
       }
 
- 
-
-      $scope.isAdmin = function(){
-        return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;
+      $scope.editRecurso = function(){
+        recursoService.EditRecurso($scope.recurso).then(function(response){
+          alert("Edited to recursos");
+          $scope.listRecursos();
+        }).catch(function(err){
+          alert(err.data.error + " " + err.data.message);
+        });
       }
 
-      $scope.isRegular = function(){
-        return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('regular') > -1;
-      }
 
   }]);

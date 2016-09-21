@@ -12,25 +12,24 @@ angular.module('AngularScaffold.Controllers')
       }
 
       $scope.login = function(user){
-
-        console.log("AQUI TA");
         authService.Login(user).then(function(response){
           $sessionStorage.currentUser = response.data;
           $scope.user = {};
-          $scope.redirect();
+          if($scope.isAdmin()){
+            window.location = "/lab.html";
+          }else{
+            window.location = "/categories.html";
+          }
+
 
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });
       }
 
-      $scope.redirect = function(){
-        window.location = "/lab.html";
-      }
-
       $scope.register = function(){
-        var user = {username: $scope.user.username, password:  $scope.user.password, email: $scope.user.email, scope: ['admin']};
-        authService.Register(user).then(function(response){
+        var docente = {email: $scope.user.email, password:  $scope.user.password, primerNombre: $scope.user.primerNombre,segundoNombre: $scope.user.segundoNombre,primerApellido: $scope.user.primerApellido,sgundoApellido: $scope.user.segundoApellido,campus: $scope.user.campus,departamento: $scope.user.departamento,telefono: $scope.user.telefono};
+        authService.Register(docente).then(function(response){
           //$scope.login({username: user.username, password: user.password});
         }).catch(function(err){
           console.log(err);
@@ -56,6 +55,28 @@ angular.module('AngularScaffold.Controllers')
         // $(".tab").addClass("active"); // instead of this do the below
         $(event.target).removeClass("btn-default").addClass("btn-primary");
         $scope.listVets();
+      }
+
+      $scope.isAdmin = function(){
+        var contador = 0;
+        for (var i = 0; i < 'admin'.length; i++) {
+          if($sessionStorage.currentUser.scope[i]=='admin'[i]){
+            contador++;
+          }
+        }
+        if(contador == 'admin'.length)
+          return true;
+      }
+
+      $scope.isDocente = function(){
+        var contador = 0;
+        for (var i = 0; i < 'docente'.length; i++) {
+          if($sessionStorage.currentUser.scope[i]=='docente'[i]){
+            contador++;
+          }
+        }
+        if(contador == 'docente'.length)
+          return true;
       }
 
   }]);

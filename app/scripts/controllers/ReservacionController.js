@@ -4,21 +4,15 @@ angular.module('AngularScaffold.Controllers')
       $scope.reservaciones = [];
       $scope.reservacion = {};
 
-      reservacionService.GetReservaciones().then(function(response){
-          $scope.reservaciones = response.data;
-        }).catch(function(err){
-          alert(err.data.error + " " + err.data.message)
-        });
-
-      $scope.GetReservaciones = function(){
-        reservacionService.GetReservaciones().then(function(response){
+      $scope.listReservaciones = function(){
+        reservacionService.ListReservaciones().then(function(response){
           $scope.reservaciones = response.data;
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message)
         });
       }
 
-      $scope.GetReservacion = function(params){
+      $scope.getReservacion = function(params){
         reservacionService.GetReservacion(params).then(function(response){
           $scope.reservacion = response.data;
         }).catch(function(err){
@@ -26,33 +20,32 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
-      $scope.PostReservacion = function(){
+      $scope.postReservacion = function(){
         reservacionService.PostReservacion($scope.reservacion).then(function(response){
           alert("Posted to reservaciones");
-          $scope.GetReservaciones();
+          $scope.listReservaciones();
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });
       }
 
 
-      $scope.DeleteReservacion = function (params) {
+      $scope.deleteReservacion = function (params) {
         reservacionService.DeleteReservacion(params).then(function (params) {
           alert("Reservacion Deleted");
-          $scope.GetReservaciones();
+          $scope.listReservaciones();
         }).catch(function (err) {
           alert(err.data.error + " " + err.data.message);
         });
       }
 
-
-
-      $scope.isAdmin = function(){
-        return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;
-      }
-
-      $scope.isRegular = function(){
-        return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('regular') > -1;
+      $scope.editReservacion = function(){
+        reservacionService.EditReservacion($scope.reservacion).then(function(response){
+          alert("Edited to reservaciones");
+          $scope.listReservaciones();
+        }).catch(function(err){
+          alert(err.data.error + " " + err.data.message);
+        });
       }
 
   }]);

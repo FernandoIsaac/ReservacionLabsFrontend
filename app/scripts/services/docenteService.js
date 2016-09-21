@@ -8,11 +8,17 @@ angular.module('AngularScaffold.Services').factory('docenteService', ['$http',
 				PostDocente: function(payload){
 					return $http.post(baseUrl + "/v1/addDocente", payload);
 				},
-                DeleteDocente: function(payload) {
-                    return $http.delete(baseUrl + '/v1/removeDocente/{docenteId}'+payload);
-                },
-                GetDocente: function(payload){
+        DeleteDocente: function(payload) {
+            return $http.delete(baseUrl + '/v1/removeDocente/{docenteId}'+payload);
+        },
+        GetDocente: function(payload){
 					return $http.get(baseUrl + "/v1/getDocente/{docenteId}"+payload);
+				},
+				ListDocentes: function(){
+					return $http.get(baseUrl + "/v1/listDocentes/"+payload);
+				}
+				EditDocente: function(){
+					return $http.get(baseUrl + "/v1/editDocente/{docenteId}"+payload);
 				}
 
 	    };

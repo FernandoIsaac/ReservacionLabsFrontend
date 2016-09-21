@@ -3,16 +3,8 @@ angular.module('AngularScaffold.Controllers')
       $scope.title = "Labs."
       $scope.labs = [];
       $scope.lab = {};
-      $scope.gender;
-      console.log('si2');
-      labService.GetLabs().then(function(response){
-          console.log('si');
-          $scope.labs = response.data;
-        }).catch(function(err){
-          alert(err.data.error + " " + err.data.message)
-        });
 
-      $scope.GetLabs = function(){
+      $scope.listLabs = function(){
         labService.GetLabs().then(function(response){
           $scope.labs = response.data;
         }).catch(function(err){
@@ -20,7 +12,7 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
-      $scope.GetLab = function(params){
+      $scope.getLab = function(params){
         labService.GetLab(params).then(function(response){
           $scope.lab = response.data;
         }).catch(function(err){
@@ -28,32 +20,32 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
-      $scope.PostLab = function(){
+      $scope.postLab = function(){
         labService.PostLab($scope.lab).then(function(response){
           alert("Posted to labs");
-          $scope.GetLabs();
+          $scope.listLabs();
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });
       }
 
-      $scope.DeleteLab = function (params) {
+      $scope.deleteLab = function (params) {
         labService.DeleteLab(params).then(function (params) {
           alert("Lab Deleted");
-          $scope.GetLabs();
+          $scope.listLabs();
         }).catch(function (err) {
           alert(err.data.error + " " + err.data.message);
         });
       }
 
-
-
-      $scope.isAdmin = function(){
-        return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;
+      $scope.editLab = function(){
+        labService.EditLab($scope.lab).then(function(response){
+          alert("Edited to labs");
+          $scope.listLabs();
+        }).catch(function(err){
+          alert(err.data.error + " " + err.data.message);
+        });
       }
 
-      $scope.isRegular = function(){
-        return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('regular') > -1;
-      }
 
   }]);

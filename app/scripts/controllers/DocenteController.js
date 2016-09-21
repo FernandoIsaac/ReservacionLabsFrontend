@@ -4,21 +4,15 @@ angular.module('AngularScaffold.Controllers')
       $scope.docentes = [];
       $scope.docente = {};
 
-      docenteService.GetDocentes().then(function(response){
-          $scope.docentes = response.data;
-        }).catch(function(err){
-          alert(err.data.error + " " + err.data.message)
-        });
-
-      $scope.GetDocentes = function(){
-        docenteService.GetDocentes().then(function(response){
+      $scope.listDocentes = function(){
+        docenteService.ListDocentes().then(function(response){
           $scope.docentes = response.data;
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message)
         });
       }
 
-      $scope.GetDocente = function(params){
+      $scope.getDocente = function(params){
         docenteService.GetDocente(params).then(function(response){
           $scope.docente = response.data;
         }).catch(function(err){
@@ -26,33 +20,32 @@ angular.module('AngularScaffold.Controllers')
         });
       }
 
-      $scope.PostDocente = function(){
+      $scope.postDocente = function(){
         docenteService.PostDocente($scope.docente).then(function(response){
           alert("Posted to docentes");
-          $scope.GetDocentes();
+          $scope.listDocentes();
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });
       }
 
 
-      $scope.DeleteDocente = function (params) {
+      $scope.deleteDocente = function (params) {
         docenteService.DeleteDocente(params).then(function (params) {
           alert("Docente Deleted");
-          $scope.GetDocentes();
+          $scope.listDocentes();
         }).catch(function (err) {
           alert(err.data.error + " " + err.data.message);
         });
       }
 
-
-
-      $scope.isAdmin = function(){
-        return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;
-      }
-
-      $scope.isRegular = function(){
-        return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('regular') > -1;
+      $scope.editDocente = function (params) {
+        docenteService.EditDocente(params).then(function (params) {
+          alert("Docente Edited");
+          $scope.listDocentes();
+        }).catch(function (err) {
+          alert(err.data.error + " " + err.data.message);
+        });
       }
 
   }]);

@@ -5,17 +5,20 @@ angular.module('AngularScaffold.Services').factory('reservacionService', ['$http
 		//var baseUrl = 'https://pawfinders-backend.herokuapp.com/';
 
 		return {
-				GetReservaciones: function(){
+				ListReservaciones: function(){
 					return $http.get(baseUrl + "/v1/listReservaciones");
 				},
 				PostReservacion: function(payload){
 					return $http.post(baseUrl + "/v1/addReservacion", payload);
 				},
-                DeleteReservacion: function(payload) {
-                    return $http.delete(baseUrl + '/v1/removeReservacion/{reservacionId}'+payload);
-                },
-                GetReservacion: function(payload){
+        DeleteReservacion: function(payload) {
+            return $http.delete(baseUrl + '/v1/removeReservacion/{reservacionId}'+payload);
+        },
+        GetReservacion: function(payload){
 					return $http.get(baseUrl + "/v1/getReservacion/{reservacionId}"+payload);
+				}
+				EditReservacion: function(payload){
+					return $http.get(baseUrl + "/v1/editReservacion/{reservacionId}"+payload);
 				}
 
 	    };

@@ -5,18 +5,21 @@ angular.module('AngularScaffold.Services').factory('petService', ['$http',
 		//var baseUrl = 'https://pawfinders-backend.herokuapp.com/';
 
 		return {
-				Getrecursos: function(){
+				ListRecursos: function(){
 					return $http.get(baseUrl + "/v1/listRecursos");
 				},
-				Postrecurso: function(payload){
+				PostRecurso: function(payload){
 					return $http.post(baseUrl + "/v1/addRecurso", payload);
 				},
-                Deleterecurso: function(payload) {
-                    return $http.delete(baseUrl + '/v1/removeRecurso/{recursoId}'+payload);
-                },
-                Getrecurso: function(payload){
+        DeleteRecurso: function(payload) {
+            return $http.delete(baseUrl + '/v1/removeRecurso/{recursoId}'+payload);
+        },
+        GetRecurso: function(payload){
 					return $http.get(baseUrl + "/v1/getRecurso/{recursoId}"+payload);
 				}
-                
+				EditRecurso: function(payload){
+					return $http.get(baseUrl + "/v1/editRecurso/{recursoId}"+payload);
+				}
+
 	    };
 }]);
