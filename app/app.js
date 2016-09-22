@@ -6,19 +6,19 @@ angular.module('AngularScaffold.Services', []);
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('home');
 	$stateProvider
-        .state('admin_vets', {
-            url: '/admin_vets',
-            templateUrl: '/admin_vets.html',
-            controller: 'petController'
+        .state('admin_docentes', {
+            url: '/admin_docentes',
+            templateUrl: '/user.html',
+            controller: 'DocenteController'
         })
         .state('home', {
             url: '/home',
             templateUrl: '/home.html',
             controller: 'HomeController'
         })
-        .state('admin_mascotas', {
-            url: '/admin_mascotas',
-            templateUrl: '/admin_mascotas.html',
-            controller: 'HomeController'
+        .state('admin_recuros', {
+            url: '/admin_recursos',
+            templateUrl: '/admin_recursos.html',
+            controller: 'RecursosController'
         });
 }])
