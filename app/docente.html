@@ -136,10 +136,10 @@ http://www.tooplate.com/view/2075-digital-team
           								<input type ="date" class="form-control" placeholder="Fecha Final" name="fecha_final" ng-model = "reservacion.fecha_final">
           							</div>
           							<div class="col-md-2 col-sm-2">
-          								<input type ="time" class="form-control" placeholder="Hora Inicial" name="hora_inicial" ng-model = "reservacion.hora_inicial">
+          								<input type ="text" class="form-control" placeholder="Hora Inicial" name="hora_inicial" ng-model = "reservacion.hora_inicial">
           							</div>
           							<div class="col-md-2 col-sm-2">
-          								<input type ="time" class="form-control" placeholder="Hora Final" name="hora_final" ng-model = "reservacion.hora_final">
+          								<input type ="text" class="form-control" placeholder="Hora Final" name="hora_final" ng-model = "reservacion.hora_final">
           							</div>
           						</div>
 
@@ -238,6 +238,24 @@ http://www.tooplate.com/view/2075-digital-team
 							</div>
 						</div>
 					</div>
+
+					<div id = "tab1" class = "tabContent">
+						<table ng-controller = "ReservacionController">
+							<thead>
+								<tr>
+									<td data-field = "id_Reservacion">id_Reservacion</th>
+									<td data-field = "descripcion">descripcion</th>
+								</tr>
+							</thead>
+							<tbody ng-repeat = "reservacion in reservaciones">
+							<tr>
+								<td>{{reservacion.id_Reservacion}}</td>
+								<td>{{reservacion.descripcion}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
 
 					<div id="Calendar" class="tabcontent">
 					  <h3>Tokyo</h3>
