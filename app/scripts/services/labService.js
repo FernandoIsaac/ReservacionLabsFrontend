@@ -12,13 +12,13 @@ angular.module('AngularScaffold.Services').factory('labService', ['$http',
 					return $http.post(baseUrl + "/v1/addLab", payload);
 				},
         DeleteLab: function(payload) {
-            return $http.delete(baseUrl + '/v1/removeLab/labId'+payload);
+            return $http.delete(baseUrl + '/v1/removeLab/{labId}'+payload);
         },
         GetLab: function(payload){
-					return $http.get(baseUrl + "/v1/getLab/labId"+payload);
+					return $http.get(baseUrl + "/v1/getLab/{labId}"+payload);
 				},
 				EditLab: function(payload){
-					return $http.get(baseUrl + "/v1/editLab/:labId"+payload);
+					return $http.get(baseUrl + "/v1/editLab/{labId}"+payload);
 				}
 
 	    };
